@@ -30,12 +30,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -51,6 +53,9 @@ public class MainActivity2 extends AppCompatActivity {
 
     ObjetoButtonImage botonImg;
     Bitmap decoded;
+    RequestQueue requestQueue;
+
+    ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
 
 
 
@@ -64,6 +69,7 @@ public class MainActivity2 extends AppCompatActivity {
         IBtn4 = (ImageButton) findViewById(R.id.imgBtn4);
         IBtn5 = (ImageButton) findViewById(R.id.imgBtn5);
         IBtn6 = (ImageButton) findViewById(R.id.imgBtn6);
+        requestQueue = Volley.newRequestQueue(this);
 
         btnSubir = (Button)findViewById(R.id.btnSubir);
 
@@ -71,6 +77,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity2.this, "Subir fotos", Toast.LENGTH_LONG).show();
+                uploadImage();
             }
         });
 
@@ -94,6 +101,66 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
     }
+
+
+    private String getStringImage(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        byte[] imageBytes = baos.toByteArray();
+
+        return Base64.encodeToString(imageBytes,Base64.DEFAULT);
+
+    }
+
+    private void uploadImage(){
+        String URL = "http://192.168.0.14/camera/upload.php";
+        Map<String, String> params = new HashMap<>();
+        int cantidad = 0;
+        for(int i = 0;i<bitmapArray.size();i++){
+
+            //params.put("path",getStringImage(botonImg.getBitmap()));
+            params.put("path"+i,getStringImage(bitmapArray.get(i)));
+            cantidad = i + 1;
+        }
+        params.put("length",""+cantidad);
+
+        Toast.makeText(this, "Cantidad a enviar: "+cantidad,Toast.LENGTH_LONG).show();
+
+        //params.put("path",getStringImage(botonImg.getBitmap()));
+
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.POST,
+                URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(MainActivity2.this, "Correcto", Toast.LENGTH_LONG).show();
+                        System.out.println("===========================================================");
+                        System.out.println("Responses: ");
+                        System.out.println(response);
+                        System.out.println("============================================================");
+                        //System.out.println("");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(MainActivity2.this, "error: "+error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+
+    }
+
 
     //====================aguas jaja    =====
     public void setButtonRef(ImageButton imageButton){
@@ -254,6 +321,9 @@ public class MainActivity2 extends AppCompatActivity {
         //imgView.setImageBitmap(decoded);
         //IBtn1.setImageBitmap(decoded);
         botonImg.getImgBoton().setImageBitmap(botonImg.getBitmap());
+
+        bitmapArray.add(botonImg.getBitmap()); // Add a bitmap
+        //bitmapArray.get(0);
     }
 
 
