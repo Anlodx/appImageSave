@@ -67,13 +67,16 @@ public class MainActivity extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //uploadImage();
+                uploadImage();
+                /*
                 Toast.makeText(MainActivity.this, "Revisa el terminal", Toast.LENGTH_LONG).show();
                 String data = getStringImage(decoded);
                 System.out.println("==================");
                 System.out.println("BASE 64: ");
                 System.out.println(data);
                 System.out.println("===================");
+
+                 */
             }
         });
 
@@ -148,19 +151,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void uploadImage(){
         String URL = "http://192.168.0.14/camera/upload.php";
+        Toast.makeText(this, "Tenemos el servidor", Toast.LENGTH_LONG).show();
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
                 URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(MainActivity.this, "Correcto", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Response: "+response.toString(), Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(MainActivity.this, "Error: "+error.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
         ){
@@ -169,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("path",getStringImage(decoded));
+                //Toast.makeText(MainActivity.this, "Estamos en parametros ", Toast.LENGTH_LONG).show();
 
                 return params;
             }
