@@ -1,91 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity2">
 
-    <ImageButton
-        android:id="@+id/imgBtn4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="44dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintBottom_toTopOf="@+id/imgBtn6"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="622dp"
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/imgBtn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintBottom_toTopOf="@+id/imgBtn3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageButton
-        android:id="@+id/imgBtn5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="152dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgBtn6"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+                android:rowCount="3">
 
-    <ImageButton
-        android:id="@+id/imgBtn6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="140dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageButton
-        android:id="@+id/imgBtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:background="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toTopOf="@+id/imgBtn4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
-        app:layout_constraintStart_toEndOf="@+id/imgBtn1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
+                <ImageButton
+                    android:id="@+id/imgBtn1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
 
-    <ImageButton
-        android:id="@+id/imgBtn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintBottom_toTopOf="@+id/imgBtn5"
-        app:layout_constraintEnd_toStartOf="@+id/imgBtn4"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/imgBtn2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
+
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/imgBtn3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
+
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/imgBtn4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
+
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/imgBtn5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
+
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/imgBtn6"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
+
+                    tools:srcCompat="@tools:sample/avatars" />
+
+
+            </GridLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnSubir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
         android:layout_marginBottom="40dp"
         android:text="Subir fotos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--
+        <Button
+            android:id="@+id/btnSubir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="Subir fotos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgBtn1"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher_round"
+            android:scaleType="center"
+            tools:layout_editor_absoluteX="320dp"
+            tools:layout_editor_absoluteY="64dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageButton
+            android:id="@+id/imgBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher"
+            android:scaleType="center"
+            tools:layout_editor_absoluteY="64dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageButton
+            android:id="@+id/imgBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher_round"
+            tools:layout_editor_absoluteX="416dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageButton
+            android:id="@+id/imgBtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher_round"
+            tools:layout_editor_absoluteX="288dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageButton
+            android:id="@+id/imgBtn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher_round"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageButton
+            android:id="@+id/imgBtn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher_round"
+            tools:srcCompat="@tools:sample/avatars" />
+    -->
+</LinearLayout>

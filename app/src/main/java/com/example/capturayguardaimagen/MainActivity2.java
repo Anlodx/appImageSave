@@ -65,6 +65,15 @@ public class MainActivity2 extends AppCompatActivity {
         IBtn5 = (ImageButton) findViewById(R.id.imgBtn5);
         IBtn6 = (ImageButton) findViewById(R.id.imgBtn6);
 
+        btnSubir = (Button)findViewById(R.id.btnSubir);
+
+        btnSubir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity2.this, "Subir fotos", Toast.LENGTH_LONG).show();
+            }
+        });
+
         IBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
