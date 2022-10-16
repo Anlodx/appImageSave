@@ -44,7 +44,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity2 extends AppCompatActivity {
-    public ImageButton IBtn1,IBtn2,IBtn3,IBtn4,IBtn5,IBtn6;
+    public ImageButton IBtn1,IBtn2,IBtn3,IBtn4,IBtn5,IBtn6,IBtn7,IBtn8;
     public Button btnSubir;
 
     private static final int REQUEST_PERMISSION_CAMERA = 101;
@@ -69,6 +69,8 @@ public class MainActivity2 extends AppCompatActivity {
         IBtn4 = (ImageButton) findViewById(R.id.imgBtn4);
         IBtn5 = (ImageButton) findViewById(R.id.imgBtn5);
         IBtn6 = (ImageButton) findViewById(R.id.imgBtn6);
+        IBtn7 = (ImageButton) findViewById(R.id.imgBtn7);
+        IBtn8 = (ImageButton) findViewById(R.id.imgBtn8);
         requestQueue = Volley.newRequestQueue(this);
 
         btnSubir = (Button)findViewById(R.id.btnSubir);
@@ -97,6 +99,36 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setButtonRef(IBtn3);
+            }
+        });
+        IBtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setButtonRef(IBtn4);
+            }
+        });
+        IBtn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setButtonRef(IBtn5);
+            }
+        });
+        IBtn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setButtonRef(IBtn6);
+            }
+        });
+        IBtn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setButtonRef(IBtn7);
+            }
+        });
+        IBtn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setButtonRef(IBtn8);
             }
         });
 

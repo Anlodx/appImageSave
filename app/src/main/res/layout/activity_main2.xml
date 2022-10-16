@@ -22,7 +22,7 @@
                 android:alignmentMode="alignMargins"
                 android:columnCount="2"
                 android:columnOrderPreserved="false"
-                android:rowCount="3">
+                android:rowCount="4">
 
 
                 <ImageButton
@@ -97,6 +97,33 @@
 
                 <ImageButton
                     android:id="@+id/imgBtn6"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
+
+                    tools:srcCompat="@tools:sample/avatars" />
+                <ImageButton
+                    android:id="@+id/imgBtn7"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="center"
+                    tools:layout_editor_absoluteX="320dp"
+                    tools:layout_editor_absoluteY="64dp"
+
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/imgBtn8"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
