@@ -44,7 +44,7 @@ import java.util.Map;
 
 //lo que hacemos aqui es tomar foto y mantenerla privada en la carpeta android/data
 public class MainActivity extends AppCompatActivity {
-    public Button btnCaptura,btnUpload;
+    public Button btnCaptura,btnUpload,btnVista2;
     public ImageView imgView;
 
     private static final int REQUEST_PERMISSION_CAMERA = 101;
@@ -59,9 +59,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         requestQueue = Volley.newRequestQueue(this);
 
+        btnVista2 = (Button) findViewById(R.id.btnVista2);
         btnUpload = (Button) findViewById(R.id.btnUpload);
         btnCaptura = (Button) findViewById(R.id.btnCaptura);
         imgView = (ImageView) findViewById(R.id.imgView);
+
+        btnVista2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MainActivity2.class));
+            }
+        });
 
 
         btnUpload.setOnClickListener(new View.OnClickListener() {
