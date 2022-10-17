@@ -11,6 +11,17 @@ public class ObjetoButtonImage {
     public String path = "";
     ImageButton imgBoton = null;
 
+    int indiceArray = -1;
+
+    public int getIndiceArray() {
+        return indiceArray;
+    }
+
+    public void setIndiceArray(int indiceArray) {
+        this.indiceArray = indiceArray;
+    }
+
+
     Bitmap bitmap = null;
 
     public Bitmap getBitmap() {

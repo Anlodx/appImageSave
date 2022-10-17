@@ -55,6 +55,8 @@ public class MainActivity2 extends AppCompatActivity {
     Bitmap decoded;
     RequestQueue requestQueue;
 
+    int indiceDeBotonPulsado = -1;
+
     ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
 
 
@@ -86,48 +88,56 @@ public class MainActivity2 extends AppCompatActivity {
         IBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 1;
                 setButtonRef(IBtn1);
             }
         });
         IBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 2;
                 setButtonRef(IBtn2);
             }
         });
         IBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 3;
                 setButtonRef(IBtn3);
             }
         });
         IBtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 4;
                 setButtonRef(IBtn4);
             }
         });
         IBtn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 5;
                 setButtonRef(IBtn5);
             }
         });
         IBtn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 6;
                 setButtonRef(IBtn6);
             }
         });
         IBtn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 7;
                 setButtonRef(IBtn7);
             }
         });
         IBtn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                indiceDeBotonPulsado = 8;
                 setButtonRef(IBtn8);
             }
         });
@@ -229,6 +239,8 @@ public class MainActivity2 extends AppCompatActivity {
             }else{
                 Toast.makeText(MainActivity2.this,"Por favor de acceso a la camara",Toast.LENGTH_LONG).show();
             }
+        }else{
+            Toast.makeText(MainActivity2.this,"Negaste el acceso a la camara",Toast.LENGTH_LONG).show();
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
@@ -310,12 +322,13 @@ public class MainActivity2 extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
                 //imgView.setImageURI(Uri.parse(currentPhotoPath));
             }else{
                 //no tomo foto
+                Toast.makeText(MainActivity2.this,"No tomaste foto xd (te saliste de camara)",Toast.LENGTH_LONG).show();
             }
+        }else{
+            Toast.makeText(MainActivity2.this,"No diste permiso a la camara",Toast.LENGTH_LONG).show();
         }
 
 
@@ -353,8 +366,35 @@ public class MainActivity2 extends AppCompatActivity {
         //imgView.setImageBitmap(decoded);
         //IBtn1.setImageBitmap(decoded);
         botonImg.getImgBoton().setImageBitmap(botonImg.getBitmap());
+        //si ya hay algo pues lo remplazo
 
-        bitmapArray.add(botonImg.getBitmap()); // Add a bitmap
+        //si no hay nada establecido lo establesco
+        /*
+        if(botonImg.getIndiceArray() == -1){
+
+            bitmapArray.add(botonImg.getBitmap()); // Add a bitmap
+            botonImg.setIndiceArray(bitmapArray.indexOf(botonImg.getBitmap()));
+        }else if(botonImg.getIndiceArray() >= 0 && bitmapArray.get(botonImg.getIndiceArray()) != null){
+            bitmapArray.set(botonImg.getIndiceArray(),botonImg.getBitmap());
+        }
+
+         */
+
+        //descomenta
+        //bitmapArray.add(botonImg.getBitmap()); // Add a bitmap
+
+        //bitmapArray.set(indiceDeBotonPulsado,botonImg.getBitmap());
+        int sizeArray = bitmapArray.size();
+        Toast.makeText(this, "tamaño de array: "+sizeArray,Toast.LENGTH_LONG).show();
+
+        if(sizeArray == 0){
+            bitmapArray.add(botonImg.getBitmap()); // Add a bitmap
+        }else if(indiceDeBotonPulsado > sizeArray){
+            bitmapArray.add(botonImg.getBitmap()); // Add a bitmap
+        }else if(indiceDeBotonPulsado <= sizeArray){
+            bitmapArray.set(indiceDeBotonPulsado - 1,botonImg.getBitmap());
+        }
+
         //bitmapArray.get(0);
     }
 
